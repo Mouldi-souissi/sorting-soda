@@ -7,12 +7,14 @@ const GameContextProvider = (props) => {
   const [bottles, setBottles] = useState("");
   const [fromTo, setFromTo] = useState([]);
 
+  // transfer lequid from to bottle
   const setDestination = (bottle) => {
     if (fromTo.length !== 2) {
       setFromTo([...fromTo, bottle]);
     }
   };
 
+  // load bottles
   useEffect(() => {
     if (fromTo.length === 2) {
       soda.transfer(fromTo[0], fromTo[1], bottles);

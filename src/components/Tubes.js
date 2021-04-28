@@ -7,7 +7,7 @@ const Tubes = () => {
   const { bottles } = useContext(gameContext);
   return (
     <div className="tubes my-5">
-      <div className="d-flex align-items-center justify-content-between">
+      <div className="tubes-container">
         {bottles &&
           bottles.map((bottle, i) => <Tube key={i} bottle={bottle} />)}
       </div>
