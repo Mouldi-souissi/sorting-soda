@@ -1,4 +1,4 @@
-const createSoda = (numBottles) => {
+const createSoda = (numBottles, maxLevel) => {
   // generate random number
   const getRandom = (min, max) => {
     min = Math.ceil(min);
@@ -16,14 +16,14 @@ const createSoda = (numBottles) => {
 
     // filling bottles with sorted numbers
     for (let i = 0; i < numBottles - 2; i++) {
-      for (let j = 0; j < numBottles - 2; j++) {
+      for (let j = 0; j < maxLevel; j++) {
         bottles[i].inner.push(i);
       }
     }
 
     // randomizing numbers in bottles
     for (let i = 0; i < numBottles - 2; i++) {
-      for (let j = 0; j < numBottles - 2; j++) {
+      for (let j = 0; j < maxLevel; j++) {
         let x = getRandom(0, numBottles - 3);
         let y = getRandom(0, numBottles - 3);
         let temp = bottles[i].inner[j];
@@ -42,16 +42,32 @@ const createSoda = (numBottles) => {
   return createBottles();
 };
 
-const transfer = (from, to, bottles) => {
+const transfer = (from, to, bottles, maxLevel) => {
   let lastFrom = bottles[from].inner[bottles[from].inner.length - 1];
   let lastTo = bottles[to].inner[bottles[to].inner.length - 1];
   let isFromAmpty = bottles[from].inner.length === 0 ? true : false;
   let isToAmpty = bottles[to].inner.length === 0 ? true : false;
+  let unicolor = 1;
+  let i = bottles[from].inner.length - 1;
+
+  // check for same color
+  while (
+    !isFromAmpty &&
+    bottles[from].inner[i] === bottles[from].inner[i - 1]
+  ) {
+    unicolor++;
+    i--;
+  }
 
   if ((lastFrom === lastTo || isToAmpty) && !isFromAmpty) {
-    let moved = bottles[from].inner.pop();
-    bottles[to].inner.push(moved);
+    for (let i = 0; i < unicolor; i++) {
+      if (bottles[to].inner.length < maxLevel) {
+        let moved = bottles[from].inner.pop();
+        bottles[to].inner.push(moved);
+      }
+    }
   }
+
   return bottles;
 };
 

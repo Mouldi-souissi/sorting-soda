@@ -12,10 +12,6 @@
 }
 
 .tube {
-  /* background-image: url("./assets/tube.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center; */
   height: 200px;
   min-width: 70px;
   position: relative;
@@ -23,6 +19,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.tube.activeBottle {
+  transform: translateY(-20px) rotate(20deg);
 }
 
 .soda-inner {

@@ -10,25 +10,29 @@ const GameContextProvider = (props) => {
   // transfer lequid from to bottle
   const setDestination = (bottle) => {
     if (fromTo.length !== 2) {
-      setFromTo([...fromTo, bottle]);
+      let dup = fromTo?.filter((el) => el === bottle);
+      if (!dup.length) {
+        setFromTo([...fromTo, bottle]);
+      } else setFromTo([]);
     }
   };
 
-  // load bottles
+  // transfer
   useEffect(() => {
     if (fromTo.length === 2) {
-      soda.transfer(fromTo[0], fromTo[1], bottles);
+      soda.transfer(fromTo[0], fromTo[1], bottles, 4);
       setFromTo([]);
     }
-  }, [fromTo]);
+  }, [fromTo, bottles]);
 
+  // load bottles
   useEffect(() => {
-    let bottles = soda.createSoda(6);
+    let bottles = soda.createSoda(6, 4);
     setBottles(bottles);
   }, []);
 
   return (
-    <gameContext.Provider value={{ bottles, setDestination }}>
+    <gameContext.Provider value={{ bottles, setDestination, fromTo }}>
       {props.children}
     </gameContext.Provider>
   );

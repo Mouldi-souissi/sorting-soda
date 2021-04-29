@@ -3,8 +3,9 @@ import Tube from "./Tube";
 
 import { gameContext } from "../context/gameContext";
 
-const Tubes = () => {
+const Tubes = (e) => {
   const { bottles } = useContext(gameContext);
+
   return (
     <div className="tubes my-5">
       <div className="tubes-container">

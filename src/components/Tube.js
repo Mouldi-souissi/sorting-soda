@@ -2,8 +2,12 @@ import React, { useContext } from "react";
 import { gameContext } from "../context/gameContext";
 // import tube from "../assets/tube.png";
 
-const Tube = ({ bottle }) => {
-  const { setDestination } = useContext(gameContext);
+const Tube = ({ bottle, selectBottle }) => {
+  const { setDestination, fromTo } = useContext(gameContext);
+
+  const handleSelect = () => {
+    setDestination(bottle.bottle);
+  };
 
   const colorise = (num) => {
     switch (num) {
@@ -20,10 +24,18 @@ const Tube = ({ bottle }) => {
     }
   };
   return (
-    <div className="tube" onClick={() => setDestination(bottle.bottle)}>
-      {/* <img alt="soda" className="tube-img" src={tube} /> */}
-
-      <div className="soda-inner d-flex flex-column-reverse">
+    <div
+      className={`tube ${
+        fromTo?.length !== 0 && fromTo[0] === bottle.bottle && "activeBottle"
+      }`}
+      onClick={handleSelect}
+    >
+      <div
+        className="soda-inner d-flex flex-column-reverse"
+        // className={`soda-inner d-flex flex-column-reverse ${
+        //   active && "activeBottle"
+        // }`}
+      >
         {bottle.inner.map((sip, i) => (
           <div key={i} className={`sip ${colorise(sip)}`}>
             {sip}
