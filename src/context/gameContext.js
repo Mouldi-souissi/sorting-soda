@@ -6,6 +6,7 @@ export const gameContext = createContext();
 const GameContextProvider = (props) => {
   const [bottles, setBottles] = useState("");
   const [fromTo, setFromTo] = useState([]);
+  // const [win, setWin] = useState(true);
 
   // transfer lequid from to bottle
   const setDestination = (bottle) => {
@@ -33,16 +34,19 @@ const GameContextProvider = (props) => {
 
   // check for win
   // useEffect(() => {
-  //   let i = 0;
-  //   let j = 0;
-  //   let win = false;
-  //   while (i < 6 || !same) {
-  //     while (j < 4 || !same) {
-  //       if (bottles[i].inner[i] !== bottles[i].inner[i + 1]) {
-  //         same = true;
-  //       }
-  //     }
+
+  //   if (bottles.length) {
+  //     bottles
+  //       .filter((bottle) => bottle.inner.length)
+  //       .map((bottle) => {
+  //         bottle.inner.map((a, b) => {
+  //           if (a !== b) {
+  //             setWin(false);
+  //           }
+  //         });
+  //       });
   //   }
+
   // }, [bottles]);
 
   return (

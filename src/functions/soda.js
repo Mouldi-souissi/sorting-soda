@@ -43,10 +43,11 @@ const createSoda = (numBottles, maxLevel) => {
 };
 
 const transfer = (from, to, bottles, maxLevel) => {
-  let lastFrom = bottles[from].inner[bottles[from].inner.length - 1];
-  let lastTo = bottles[to].inner[bottles[to].inner.length - 1];
-  let isFromAmpty = bottles[from].inner.length === 0 ? true : false;
-  let isToAmpty = bottles[to].inner.length === 0 ? true : false;
+  const lastFrom = bottles[from].inner[bottles[from].inner.length - 1];
+  const lastTo = bottles[to].inner[bottles[to].inner.length - 1];
+  const isFromAmpty = bottles[from].inner.length === 0;
+  const isToAmpty = bottles[to].inner.length === 0;
+
   let unicolor = 1;
   let i = bottles[from].inner.length - 1;
 
