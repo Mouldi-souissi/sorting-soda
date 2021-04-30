@@ -31,6 +31,20 @@ const GameContextProvider = (props) => {
     setBottles(bottles);
   }, []);
 
+  // check for win
+  // useEffect(() => {
+  //   let i = 0;
+  //   let j = 0;
+  //   let win = false;
+  //   while (i < 6 || !same) {
+  //     while (j < 4 || !same) {
+  //       if (bottles[i].inner[i] !== bottles[i].inner[i + 1]) {
+  //         same = true;
+  //       }
+  //     }
+  //   }
+  // }, [bottles]);
+
   return (
     <gameContext.Provider value={{ bottles, setDestination, fromTo }}>
       {props.children}

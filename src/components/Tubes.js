@@ -8,9 +8,11 @@ const Tubes = (e) => {
 
   return (
     <div className="tubes my-5">
-      <div className="tubes-container">
-        {bottles &&
-          bottles.map((bottle, i) => <Tube key={i} bottle={bottle} />)}
+      <div className="tubes-container container">
+        <div className="row">
+          {bottles &&
+            bottles.map((bottle, i) => <Tube key={i} bottle={bottle} />)}
+        </div>
       </div>
     </div>
   );

@@ -1,34 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Lemonada:wght@600&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.tubes .tubes-container {
+body {
+  font-family: "Caveat", cursive;
+}
+
+/* .tubes .tubes-container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5rem;
-}
+} */
 
 .tube {
   height: 200px;
   min-width: 70px;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
 }
 
 .tube.activeBottle {
-  transform: translateY(-20px) rotate(20deg);
+  transform: translateY(-20px) rotate(5deg);
 }
 
 .soda-inner {
   position: absolute;
   border: 2px solid black;
-  min-height: 130px;
+  min-height: 115px;
   border-radius: 0 0 30px 30px;
   border-top: none;
   min-width: 50px;

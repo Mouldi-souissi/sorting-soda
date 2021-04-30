@@ -25,7 +25,7 @@ const Tube = ({ bottle, selectBottle }) => {
   };
   return (
     <div
-      className={`tube ${
+      className={`tube col-2 ${
         fromTo?.length !== 0 && fromTo[0] === bottle.bottle && "activeBottle"
       }`}
       onClick={handleSelect}
