@@ -6,7 +6,7 @@ export const gameContext = createContext();
 const GameContextProvider = (props) => {
   const [bottles, setBottles] = useState("");
   const [fromTo, setFromTo] = useState([]);
-  const [totalBottles] = useState(4);
+  const [totalBottles] = useState(6);
   const [maxLevel] = useState(4);
   const [win, setWin] = useState(false);
 
@@ -28,7 +28,7 @@ const GameContextProvider = (props) => {
     );
 
     let res = fullBottles.map((bottle, i) => {
-      if (bottle.inner[i] !== bottle.inner[i + 1]) {
+      if (bottle.inner[i] !== bottle.inner[i + 1] && i < maxLevel - 1) {
         return (check = false);
       } else return check;
     });
