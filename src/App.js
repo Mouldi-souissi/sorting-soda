@@ -22,7 +22,7 @@ function App() {
             </button>
           )}
 
-          {win && <h2 className="ml-auto">Bravo !</h2>}
+          {win && <h2 className="mx-auto">Bravo !</h2>}
         </div>
       </div>
     </div>

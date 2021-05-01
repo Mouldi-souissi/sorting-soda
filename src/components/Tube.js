@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { gameContext } from "../context/gameContext";
-// import tube from "../assets/tube.png";
 
-const Tube = ({ bottle, selectBottle }) => {
+const Tube = ({ bottle }) => {
   const { setDestination, fromTo } = useContext(gameContext);
 
   const handleSelect = () => {
@@ -30,12 +29,7 @@ const Tube = ({ bottle, selectBottle }) => {
       }`}
       onClick={handleSelect}
     >
-      <div
-        className="soda-inner d-flex flex-column-reverse"
-        // className={`soda-inner d-flex flex-column-reverse ${
-        //   active && "activeBottle"
-        // }`}
-      >
+      <div className="soda-inner d-flex flex-column-reverse">
         {bottle.inner.map((sip, i) => (
           <div key={i} className={`sip ${colorise(sip)}`}>
             {sip}

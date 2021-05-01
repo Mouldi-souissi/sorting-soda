@@ -7,7 +7,7 @@ const Tubes = (e) => {
   const { bottles } = useContext(gameContext);
 
   return (
-    <div className="tubes my-5">
+    <div className="tubes">
       <div className="tubes-container container pt-5">
         <div className="row">
           {bottles &&
